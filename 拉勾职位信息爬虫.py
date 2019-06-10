@@ -2,6 +2,7 @@ from selenium import webdriver
 import time
 from lxml import etree
 import random
+#解析每个详情页面
 def parse_detail_url(detail_url):
     driver = webdriver.Chrome()
     driver.get(detail_url)
@@ -39,6 +40,7 @@ def spider():
     submitBtn.click()
     i=1
     while i <5:
+        #翻页操作，总共5页
         submitBtn1 = driver.find_element_by_class_name('pager_next ')
         submitBtn1.click()
         html = etree.HTML(driver.page_source)
